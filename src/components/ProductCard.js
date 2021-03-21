@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
+import Button from "./Button";
+
 class ProductCard extends Component {
   componentDidMount() {
     console.log(this.props);
   }
 
   render() {
-    const { img, title, price, handleAddToCart } = this.props;
+    const {img, title, price, handleAddToCart } = this.props;
 
     return (
       <div className="col mb-4 d-flex flex-column product__card">
@@ -14,9 +16,7 @@ class ProductCard extends Component {
         <div className="d-block">
           <h3 className="h5">{title}</h3>
           <p>{price}€</p>
-          <button className="btn btn-dark" onClick={handleAddToCart}>
-            Add to cart
-          </button>
+          <Button text="Add to cart" onClick={handleAddToCart} />
         </div>
       </div>
     );
