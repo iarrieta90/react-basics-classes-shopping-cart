@@ -6,7 +6,6 @@ import ShoppingCartItem from "./ShoppingCartItem";
 function getTotalPrice(cartItems) {
   const pricesArray = cartItems.map((item) => item.price * item.quantity);
   const sum = pricesArray.reduce((a,b) => (a+b), 0);
-
   return sum;
 }
 class ShoppingCart extends Component {

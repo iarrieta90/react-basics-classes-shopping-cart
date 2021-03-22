@@ -6,6 +6,19 @@ import ProductList from "./components/ProductList";
 import ShoppingCart from "./components/ShoppingCart";
 import products from "./products";
 
+function loadItems() {
+  const items = localStorage.getItem("products");
+
+  if(items){
+    try {
+      return JSON.parse(items);
+    } catch (error) {
+      return [];
+    } 
+  } else {
+    return [];
+  }
+}
 class App extends Component {
 
   constructor(props){
@@ -16,6 +29,16 @@ class App extends Component {
     this.handleAddToCart = this.handleAddToCart.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState(() => ({
+      cartItems: loadItems(),
+    }))
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("products", JSON.stringify(this.state.cartItems));
   }
 
 

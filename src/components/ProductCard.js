@@ -3,9 +3,6 @@ import React, { Component } from "react";
 import Button from "./Button";
 
 class ProductCard extends Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
 
   render() {
     const {img, title, price, handleAddToCart } = this.props;
